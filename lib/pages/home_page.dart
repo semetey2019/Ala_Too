@@ -1,3 +1,5 @@
+import 'package:alatoo/pages/detail_page.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -93,7 +95,7 @@ class _HomePageViewState extends State<HomePageView> {
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius:
-                                  BorderRadiusDirectional.circular(10)),
+                                  BorderRadiusDirectional.circular(8)),
                           child: _buildRow([
                             DotsIndicator(
                               dotsCount: _totalDots,
@@ -262,39 +264,32 @@ class _HomePageViewState extends State<HomePageView> {
                   image: 'assets/emoji_happy.svg',
                   text: 'Удобства',
                   text2: 'Самое необходимое',
-                  icon: Icons.arrow_forward_ios_rounded,
+                  icon: Icon(Icons.arrow_forward_ios_rounded),
                 ),
+                // SizedBox(height: 10),
                 ButtomContainer(
                   image: 'assets/tick.svg',
-                  icon: Icons.arrow_forward_ios_rounded,
+                  icon: Icon(Icons.arrow_forward_ios_rounded),
                   text: 'Что включено',
                   text2: 'Самое необходимое',
                 ),
                 ButtomContainer(
                   image: 'assets/close.svg',
-                  icon: Icons.arrow_forward_ios_rounded,
                   text: 'Что не включено',
                   text2: 'Самое необходимое',
+                  icon: Icon(Icons.arrow_forward_ios_rounded),
                 ),
               ],
             ),
           ),
-          // ElevatedButton(
-          //     onPressed: () {},
-          //     style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
-          //     child: const Text(
-          //       'К выбору номера',
-          //       style: TextStyle(
-          //           fontSize: 16,
-          //           fontWeight: FontWeight.w500,
-          //           color: Colors.white),
-          //     ))
-
           MyCustomButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: ((context) => DetailPegeView())));
+            },
             borderRadius: 10, // Здесь можно настроить радиус границ
             buttonText: 'Моя кнопка',
-            style: TextStyle(
+            style: const TextStyle(
                 fontSize: 16, fontWeight: FontWeight.w500, color: Colors.white),
           ),
         ]));
@@ -337,7 +332,7 @@ class ButtomContainer extends StatelessWidget {
       required this.text,
       required this.text2});
   final String image;
-  final IconData icon;
+  final Icon icon;
   final String text;
   final String text2;
 
@@ -345,8 +340,15 @@ class ButtomContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 50,
-      width: 325,
-      decoration: const BoxDecoration(color: Color(0xffFBFBFC)),
+      width: 314,
+      decoration: const BoxDecoration(
+        color: Color(0xffFBFBFC),
+        border: Border(
+          top: BorderSide(
+            color: Color.fromARGB(255, 231, 230, 230),
+          ),
+        ),
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -380,9 +382,12 @@ class ButtomContainer extends StatelessWidget {
             ],
           ),
           const SizedBox(
-            width: 110,
+            width: 80,
           ),
-          Icon(icon),
+          IconButton(
+            onPressed: () {},
+            icon: icon,
+          ),
         ],
       ),
     );
