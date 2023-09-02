@@ -100,7 +100,7 @@ class _DetailPegeViewState extends State<DetailPegeView> {
                     ],
                   ),
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -393,17 +393,30 @@ class _DetailPegeViewState extends State<DetailPegeView> {
                   ],
                 ),
                 ElevatedButton(
-                  onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.blue,
-                    fixedSize: Size(343, 18),
+                    backgroundColor: const Color(0xFFFFFFFF),
+                    fixedSize: Size(MediaQuery.of(context).size.width - 30, 50),
+                    shadowColor: Colors.blueAccent,
+                    elevation: 5,
                   ),
+                  onPressed: () {},
                   child: const Text(
                     "Выбрать номер",
                     style: TextStyle(fontSize: 16),
-                    selectionColor: Color(0xFFFFFFFF),
                   ),
-                )
+                ),
+                // ElevatedButton(
+                //   onPressed: () {},
+                //   style: ElevatedButton.styleFrom(
+                //     primary: Colors.blue,
+                //     fixedSize: Size(343, 18),
+                //   ),
+                //   child: const Text(
+                //     "Выбрать номер",
+                //     style: TextStyle(fontSize: 16),
+                //     selectionColor: Color(0xFFFFFFFF),
+                //   ),
+                // )
               ],
             ),
           ),
