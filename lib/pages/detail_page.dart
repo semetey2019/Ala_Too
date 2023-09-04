@@ -1,3 +1,7 @@
+import 'package:alatoo/pages/home_page.dart';
+import 'package:alatoo/pages/person_page.dart';
+import 'package:alatoo/slider/slider.dart';
+
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
@@ -12,415 +16,303 @@ class _DetailPegeViewState extends State<DetailPegeView> {
   final _totalDots = 5;
   int _currentPosition = 0;
 
-  int _validPosition(int position) {
-    if (position >= _totalDots) return 0;
-    if (position < 0) return _totalDots - 1;
-    return position;
-  }
-
-  void _updatePosition(int position) {
-    setState(() => _currentPosition = _validPosition(position));
-  }
-
-  Widget _buildRow(List<Widget> widgets) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: widgets,
-    );
-  }
-
   String getPrettyCurrPosition() {
     return (_currentPosition + 1.0).toStringAsPrecision(3);
   }
 
   final decorator = DotsDecorator(
     activeColor: Colors.black,
-    size: Size.square(7.0),
-    activeSize: Size.square(7.0),
+    size: const Size.square(7.0),
+    activeSize: const Size.square(7.0),
     activeShape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(25.0),
     ),
   );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
+        title: const Center(
+          child: Text(
+            "Steigenberger Makadi",
+            style: TextStyle(
+                fontSize: 22, fontWeight: FontWeight.w500, color: Colors.black),
+          ),
+        ),
         backgroundColor: Colors.white,
-        title: const Text('Steigenberger Makadi'),
       ),
-      body: ListView(
-        scrollDirection: Axis.vertical,
-        children: [
-          Container(
-            decoration: const BoxDecoration(color: Colors.white),
-            height: 539,
-            child: ListView(
-              children: [
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Stack(
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+              width: double.infinity,
+              height: 539,
+              color: Colors.white,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SliderWidget(urls: [
+                    "https://www.atorus.ru/sites/default/files/upload/image/News/56149/Club_Priv%C3%A9_by_Belek_Club_House.jpg",
+                    "https://deluxe.voyage/useruploads/articles/The_Makadi_Spa_Hotel_02.jpg",
+                    "https://deluxe.voyage/useruploads/articles/article_1eb0a64d00.jpg"
+                  ]),
+                  const SizedBox(height: 16),
+                  const Text(
+                    "Стандартный с видом на бассейн или сад",
+                    style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black),
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
                     children: [
-                      Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 50),
-                            child:
-                                Image.asset("assets/1.png", fit: BoxFit.contain
-                                    // height: 257,
-                                    // width: 390,
-                                    ),
+                      Container(
+                        decoration:
+                            const BoxDecoration(color: Color(0xffFBFBFC)),
+                        width: 140,
+                        height: 30,
+                        child: Center(
+                          child: InkWell(
+                            onTap: () {},
+                            child: const Text(
+                              "Все включено",
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color(0xff828796)),
+                            ),
                           ),
-                          const SizedBox(
-                            width: 40,
-                          ),
-                          Image.asset("assets/1.png", fit: BoxFit.cover),
-                        ],
+                        ),
                       ),
-                      Positioned(
-                        bottom: 10,
-                        left: MediaQuery.of(context).size.width / 2.5,
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius:
-                                  BorderRadiusDirectional.circular(8)),
-                          child: _buildRow(
-                            [
-                              DotsIndicator(
-                                dotsCount: _totalDots,
-                                position: _currentPosition,
-                                reversed: false,
-                                decorator: decorator,
-                              ),
-                            ],
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      Container(
+                        decoration:
+                            const BoxDecoration(color: Color(0xffFBFBFC)),
+                        width: 140,
+                        height: 30,
+                        child: Center(
+                          child: InkWell(
+                            onTap: () {},
+                            child: const Text(
+                              "Кондиционер",
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color(0xff828796)),
+                            ),
                           ),
                         ),
                       ),
                     ],
                   ),
-                ),
-                const SizedBox(height: 15),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Column(
+                  const SizedBox(height: 8),
+                  Container(
+                    height: 35,
+                    width: 192,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                      color: Color.fromRGBO(13, 114, 255, 0.10),
+                    ),
+                    child: const Row(
                       children: [
-                        Text(
-                          "Стандартный с видом на бассейн\n или сад",
-                          style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Подробнее о номере",
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color(0xff0D72FF)),
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Container(
-                      decoration: const BoxDecoration(color: Color(0xffFBFBFC)),
-                      width: 140,
-                      height: 30,
-                      child: Center(
-                        child: InkWell(
-                          onTap: () {},
-                          child: const Text(
-                            "Все включено",
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: Color(0xff828796)),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    Container(
-                      decoration: const BoxDecoration(color: Color(0xffFBFBFC)),
-                      width: 140,
-                      height: 30,
-                      child: Center(
-                        child: InkWell(
-                          onTap: () {},
-                          child: const Text(
-                            "Кондиционер",
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: Color(0xff828796)),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Container(
-                  height: 35,
-                  width: 192,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
-                    color: Color.fromRGBO(13, 114, 255, 0.10),
                   ),
-                  child: Row(
+                  const SizedBox(height: 10),
+                  const Row(
                     children: [
-                      const Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Подробнее о номере",
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: Color(0xff0D72FF)),
+                      Text(
+                        "от 134 673 ₽",
+                        style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        "за тур с перелётом",
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xff828796)),
+                      ),
+                    ],
+                  ),
+                  MyCustomButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => PersonPage())));
+                    },
+                    borderRadius: 20, // Здесь можно настроить радиус границ
+                    buttonText: 'Выбрать номер',
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 10),
+            Container(
+              width: double.infinity,
+              height: 539,
+              color: Colors.white,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SliderWidget(urls: [
+                    "https://www.atorus.ru/sites/default/files/upload/image/News/56149/Club_Priv%C3%A9_by_Belek_Club_House.jpg",
+                    "https://deluxe.voyage/useruploads/articles/The_Makadi_Spa_Hotel_02.jpg",
+                    "https://deluxe.voyage/useruploads/articles/article_1eb0a64d00.jpg"
+                  ]),
+                  const SizedBox(height: 16),
+                  const Text(
+                    "Стандартный с видом на бассейн или сад",
+                    style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black),
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    children: [
+                      Container(
+                        decoration:
+                            const BoxDecoration(color: Color(0xffFBFBFC)),
+                        width: 140,
+                        height: 30,
+                        child: Center(
+                          child: InkWell(
+                            onTap: () {},
+                            child: const Text(
+                              "Все включено",
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color(0xff828796)),
+                            ),
                           ),
-                        ],
+                        ),
                       ),
                       const SizedBox(
-                        width: 80,
+                        width: 20,
                       ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.arrow_forward_ios_rounded,
-                          color: Color(0xff0D72FF),
-                          size: 20,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const Row(
-                  children: [
-                    Text(
-                      "186 600 ₽",
-                      style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      "за 7 ночей с перелётом",
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                          color: Color(0xff828796)),
-                    ),
-                  ],
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.blue,
-                    fixedSize: Size(343, 18),
-                  ),
-                  child: const Text(
-                    "Выбрать номер",
-                    style: TextStyle(fontSize: 16),
-                    selectionColor: Color(0xFFFFFFFF),
-                  ),
-                )
-              ],
-            ),
-          ),
-          SizedBox(height: 10),
-          Container(
-            decoration: const BoxDecoration(color: Colors.white),
-            height: 539,
-            child: ListView(
-              children: [
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Stack(
-                    children: [
-                      Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 50),
-                            child:
-                                Image.asset("assets/1.png", fit: BoxFit.contain
-                                    // height: 257,
-                                    // width: 390,
-                                    ),
-                          ),
-                          const SizedBox(
-                            width: 40,
-                          ),
-                          Image.asset("assets/1.png", fit: BoxFit.cover),
-                        ],
-                      ),
-                      Positioned(
-                        bottom: 10,
-                        left: MediaQuery.of(context).size.width / 2.5,
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius:
-                                  BorderRadiusDirectional.circular(8)),
-                          child: _buildRow(
-                            [
-                              DotsIndicator(
-                                dotsCount: _totalDots,
-                                position: _currentPosition,
-                                reversed: false,
-                                decorator: decorator,
-                              ),
-                            ],
+                      Container(
+                        decoration:
+                            const BoxDecoration(color: Color(0xffFBFBFC)),
+                        width: 140,
+                        height: 30,
+                        child: Center(
+                          child: InkWell(
+                            onTap: () {},
+                            child: const Text(
+                              "Кондиционер",
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color(0xff828796)),
+                            ),
                           ),
                         ),
                       ),
                     ],
                   ),
-                ),
-                SizedBox(height: 15),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Column(
+                  const SizedBox(height: 8),
+                  Container(
+                    height: 35,
+                    width: 192,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                      color: Color.fromRGBO(13, 114, 255, 0.10),
+                    ),
+                    child: const Row(
                       children: [
-                        Text(
-                          "Стандартный с видом на бассейн\n или сад",
-                          style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Подробнее о номере",
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color(0xff0D72FF)),
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Container(
-                      decoration: const BoxDecoration(color: Color(0xffFBFBFC)),
-                      width: 140,
-                      height: 30,
-                      child: Center(
-                        child: InkWell(
-                          onTap: () {},
-                          child: const Text(
-                            "Все включено",
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: Color(0xff828796)),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    Container(
-                      decoration: const BoxDecoration(color: Color(0xffFBFBFC)),
-                      width: 140,
-                      height: 30,
-                      child: Center(
-                        child: InkWell(
-                          onTap: () {},
-                          child: const Text(
-                            "Кондиционер",
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: Color(0xff828796)),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Container(
-                  height: 35,
-                  width: 192,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
-                    color: Color.fromRGBO(13, 114, 255, 0.10),
                   ),
-                  child: Row(
+                  const SizedBox(height: 10),
+                  const Row(
                     children: [
-                      const Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Подробнее о номере",
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: Color(0xff0D72FF)),
-                          ),
-                        ],
+                      Text(
+                        "от 134 673 ₽",
+                        style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black),
                       ),
-                      const SizedBox(
-                        width: 80,
+                      SizedBox(
+                        width: 10,
                       ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.arrow_forward_ios_rounded,
-                          color: Color(0xff0D72FF),
-                          size: 20,
-                        ),
+                      Text(
+                        "за тур с перелётом",
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xff828796)),
                       ),
                     ],
                   ),
-                ),
-                const Row(
-                  children: [
-                    Text(
-                      "186 600 ₽",
-                      style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black),
+                  MyCustomButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => const PersonPage())));
+                    },
+                    borderRadius: 20, // Здесь можно настроить радиус границ
+                    buttonText: 'Выбрать номер',
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
                     ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      "за 7 ночей с перелётом",
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                          color: Color(0xff828796)),
-                    ),
-                  ],
-                ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFFFFFFF),
-                    fixedSize: Size(MediaQuery.of(context).size.width - 30, 50),
-                    shadowColor: Colors.blueAccent,
-                    elevation: 5,
                   ),
-                  onPressed: () {},
-                  child: const Text(
-                    "Выбрать номер",
-                    style: TextStyle(fontSize: 16),
-                  ),
-                ),
-                // ElevatedButton(
-                //   onPressed: () {},
-                //   style: ElevatedButton.styleFrom(
-                //     primary: Colors.blue,
-                //     fixedSize: Size(343, 18),
-                //   ),
-                //   child: const Text(
-                //     "Выбрать номер",
-                //     style: TextStyle(fontSize: 16),
-                //     selectionColor: Color(0xFFFFFFFF),
-                //   ),
-                // )
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

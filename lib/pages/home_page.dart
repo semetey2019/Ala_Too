@@ -13,12 +13,6 @@ class HomePageView extends StatefulWidget {
 }
 
 class _HomePageViewState extends State<HomePageView> {
-  // @override
-  // void initState() async {
-  //   hotelList = await HotelService().getAllImages();
-  //   super.initState();
-  // }
-
   final _totalDots = 5;
   int _currentPosition = 0;
 
@@ -42,7 +36,11 @@ class _HomePageViewState extends State<HomePageView> {
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
         title: const Center(
-          child: Text("Отель"),
+          child: Text(
+            "Отель",
+            style: TextStyle(
+                fontSize: 22, fontWeight: FontWeight.w500, color: Colors.black),
+          ),
         ),
         backgroundColor: Colors.white,
       ),
@@ -53,7 +51,7 @@ class _HomePageViewState extends State<HomePageView> {
           children: [
             Container(
               color: Colors.white,
-              padding: EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -129,46 +127,65 @@ class _HomePageViewState extends State<HomePageView> {
             const SizedBox(
               height: 20,
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: double.infinity,
-                    color: Colors.white,
-                    child: const Column(
-                      children: [
-                        Text(
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  height: 428,
+                  width: double.infinity,
+                  color: Colors.white,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Padding(
+                        padding:
+                            EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                        child: Text(
                           'Об отеле',
                           style: TextStyle(
                               fontSize: 22,
                               fontWeight: FontWeight.w500,
                               color: Colors.black),
                         ),
-                        Row(
-                          children: [
-                            Text(
-                              "3-я линия",
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color(0xff828796)),
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            decoration:
+                                const BoxDecoration(color: Color(0xffFBFBFC)),
+                            width: 140,
+                            height: 30,
+                            child: Center(
+                              child: InkWell(
+                                onTap: () {},
+                                child: const Text(
+                                  "Все включено",
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: Color(0xff828796)),
+                                ),
+                              ),
                             ),
-                            SizedBox(
-                              width: 20,
-                            ),
-                            Text(
-                              "Платный Wi-Fi в фойе",
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color(0xff828796)),
-                            ),
-                          ],
-                        ),
-                        Column(
+                          ),
+                          const SizedBox(
+                            width: 30,
+                          ),
+                          const Text(
+                            "Платный Wi-Fi в фойе",
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xff828796)),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 15),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 16),
+                        child: Column(
                           children: [
                             Row(
                               children: [
@@ -208,44 +225,79 @@ class _HomePageViewState extends State<HomePageView> {
                             ),
                           ],
                         ),
-                      ],
-                    ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Center(
+                        child: Container(
+                          decoration:
+                              const BoxDecoration(color: Color(0xffFBFBFC)),
+                          width: 343,
+                          height: 184,
+                          child: Row(
+                            children: [
+                              SvgPicture.asset('assets/emoji_happy.svg'),
+                              const SizedBox(
+                                width: 15,
+                              ),
+                              const Row(
+                                children: [
+                                  Column(
+                                    children: [
+                                      Text(
+                                        "Удобства",
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w500,
+                                            color: Colors.black),
+                                      ),
+                                      Text(
+                                        "Самое необходимое",
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w500,
+                                            color: Colors.grey),
+                                      ),
+                                      Divider(
+                                        indent: 20,
+                                        endIndent: 30,
+                                        color: Color(0x26828796),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(
+                                width: 110,
+                              ),
+                              IconButton(
+                                onPressed: () {},
+                                icon:
+                                    const Icon(Icons.arrow_forward_ios_rounded),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-
-                  const ButtomContainer(
-                    image: 'assets/emoji_happy.svg',
-                    text: 'Удобства',
-                    icon: Icon(Icons.arrow_forward_ios_rounded),
+                ),
+                MyCustomButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: ((context) => const DetailPegeView())));
+                  },
+                  borderRadius: 20, // Здесь можно настроить радиус границ
+                  buttonText: 'К выбору номера',
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
                   ),
-                  // SizedBox(height: 10),
-                  const ButtomContainer(
-                    image: 'assets/tick.svg',
-                    icon: Icon(Icons.arrow_forward_ios_rounded),
-                    text: 'Что включено',
-                  ),
-                  const ButtomContainer(
-                    image: 'assets/close.svg',
-                    text: 'Что не включено',
-                    icon: Icon(Icons.arrow_forward_ios_rounded),
-                  ),
-
-                  MyCustomButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: ((context) => const DetailPegeView())));
-                    },
-                    borderRadius: 10, // Здесь можно настроить радиус границ
-                    buttonText: 'К выбору номера',
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ],
         ),
@@ -269,86 +321,20 @@ class MyCustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.blue,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius),
-          ),
-          minimumSize: const Size.fromHeight(48)),
-      child: Text(buttonText),
-    );
-  }
-}
-
-class ButtomContainer extends StatelessWidget {
-  const ButtomContainer({
-    super.key,
-    required this.image,
-    required this.icon,
-    required this.text,
-  });
-  final String image;
-  final Icon icon;
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      decoration: const BoxDecoration(
-        color: Color(0xffFBFBFC),
-      ),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: Row(
-              children: [
-                SvgPicture.asset(
-                  image,
-                ),
-                const Divider(
-                  indent: 20,
-                  endIndent: 30,
-                  color: Color(0x26828796),
-                ),
-                Row(
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          text,
-                          style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black),
-                        ),
-                        const Text(
-                          "Самое необходимое",
-                          style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.grey),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  width: 80,
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: icon,
-                ),
-              ],
+    return Padding(
+      padding: const EdgeInsets.only(left: 16, right: 16),
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.blue,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(borderRadius),
             ),
-          ),
-        ],
+            minimumSize: const Size.fromHeight(48)),
+        child: Text(
+          buttonText,
+          style: TextStyle(color: Colors.white),
+        ),
       ),
     );
   }
