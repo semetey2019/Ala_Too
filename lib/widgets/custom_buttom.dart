@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 
 class MyCustomButton extends StatelessWidget {
   final VoidCallback onPressed;
-  final double borderRadius;
   final String buttonText;
   final TextStyle style;
+  final borderRadius;
 
   MyCustomButton({
     required this.onPressed,
-    required this.borderRadius,
     required this.buttonText,
     required this.style,
+    this.borderRadius,
   });
 
   @override
@@ -19,9 +19,7 @@ class MyCustomButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
           backgroundColor: Colors.blue,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius),
-          ),
+          shape: RoundedRectangleBorder(),
           minimumSize: const Size.fromHeight(48)),
       child: Text(buttonText),
     );

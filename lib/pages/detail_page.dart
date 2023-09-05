@@ -1,9 +1,10 @@
-import 'package:alatoo/components/app_colors.dart';
-import 'package:alatoo/components/app_text_style.dart';
-import 'package:alatoo/components/app_texts.dart';
+import 'package:alatoo/config/app_colors.dart';
+import 'package:alatoo/config/app_text_style.dart';
+import 'package:alatoo/config/app_texts.dart';
 import 'package:alatoo/pages/home_page.dart';
 import 'package:alatoo/pages/person_page.dart';
-import 'package:alatoo/slider/slider.dart';
+import 'package:alatoo/widgets/custom_buttom.dart';
+import 'package:alatoo/widgets/slider.dart';
 
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';

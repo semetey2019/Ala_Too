@@ -32,8 +32,10 @@ class AppTexts {
   static const daty = "Даты";
   static const daty1 = "19.09.2023 – 27.09.2023";
   static const night = "Кол-во ночей";
+  static const night1 = "7 ночей";
 
-  static const number = "Номер";
+  static const email = "Почта";
+  static const number = "Номер телефона";
   static const food = "Питания";
   static const information = 'Информация о покупателе';
   static const check =
@@ -46,8 +48,8 @@ class AppTexts {
   static const number1 = 'Номер загранпаспорта ';
   static const passport = 'Срок действия загранпаспорта ';
   static const tourist2 = 'Второй турист ';
-  static const addtourist = 'Добавить Туриста ';
-  static const change = 'Изменить Туриста ';
+  static const addtourist = 'Добавить туриста ';
+  static const change = 'Изменить туриста ';
   static const tur1 = "Тур";
   static const sbor = 'Топливный сбор';
   static const serviceSbor = 'Сервисный сбор';

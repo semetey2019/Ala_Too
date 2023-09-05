@@ -1,9 +1,10 @@
-import 'package:alatoo/components/app_colors.dart';
-import 'package:alatoo/components/app_text_style.dart';
-import 'package:alatoo/components/app_texts.dart';
-import 'package:alatoo/model/hotel_model.dart';
+import 'package:alatoo/config/app_colors.dart';
+import 'package:alatoo/config/app_text_style.dart';
+import 'package:alatoo/config/app_texts.dart';
+
 import 'package:alatoo/pages/detail_page.dart';
-import 'package:alatoo/slider/slider.dart';
+import 'package:alatoo/widgets/custom_buttom.dart';
+import 'package:alatoo/widgets/slider.dart';
 import 'package:flutter/material.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -31,7 +32,8 @@ class _HomePageViewState extends State<HomePageView> {
       borderRadius: BorderRadius.circular(25.0),
     ),
   );
-  List<HotelModel>? hotelList;
+  bool isVisible = false;
+  bool isVisibles = false;
 
   @override
   Widget build(BuildContext context) {
@@ -199,10 +201,11 @@ class _HomePageViewState extends State<HomePageView> {
                       Center(
                         child: Container(
                           decoration: const BoxDecoration(
-                              color: AppColors.grey1,
+                              color: AppColors.grey2,
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(20))),
+                                  BorderRadius.all(Radius.circular(15))),
                           height: 55,
+                          width: 380,
                           child: ContainerButtom(
                               image: SvgPicture.asset("assets/emoji_happy.svg"),
                               text: AppTexts.udobstva),
@@ -275,60 +278,20 @@ class ContainerButtom extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text(
-                  text,
-                  style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.black),
-                ),
+                Text(text, style: AppTextStyles.information2),
                 const Text(AppTexts.need, style: AppTextStyles.udobno),
               ],
             ),
           ],
         ),
         const SizedBox(
-          width: 100,
+          width: 90,
         ),
         IconButton(
           onPressed: () {},
           icon: const Icon(Icons.arrow_forward_ios_rounded),
         ),
       ],
-    );
-  }
-}
-
-class MyCustomButton extends StatelessWidget {
-  final VoidCallback onPressed;
-  final double borderRadius;
-  final String buttonText;
-  final TextStyle style;
-
-  MyCustomButton({
-    required this.onPressed,
-    required this.borderRadius,
-    required this.buttonText,
-    required this.style,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 16, right: 16),
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-            backgroundColor: AppColors.blue,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(borderRadius),
-            ),
-            minimumSize: const Size.fromHeight(48)),
-        child: Text(
-          buttonText,
-          style: const TextStyle(color: AppColors.white),
-        ),
-      ),
     );
   }
 }

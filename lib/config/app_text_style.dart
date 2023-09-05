@@ -39,6 +39,11 @@ class AppTextStyles {
     fontSize: 16,
     fontWeight: FontWeight.w400,
   );
+  static const information2 = TextStyle(
+    color: Colors.black,
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+  );
   static const udobno = TextStyle(
     color: Color(0xFF828796),
     fontSize: 16,

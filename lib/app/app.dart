@@ -1,4 +1,5 @@
 import 'package:alatoo/pages/home_page.dart';
+import 'package:alatoo/widgets/text_form_widger.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomePageView(),
+      home: HomePageView(),
     );
   }
 }
