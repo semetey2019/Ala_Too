@@ -1,3 +1,6 @@
+import 'package:alatoo/components/app_colors.dart';
+import 'package:alatoo/components/app_text_style.dart';
+import 'package:alatoo/components/app_texts.dart';
 import 'package:alatoo/model/hotel_model.dart';
 import 'package:alatoo/pages/detail_page.dart';
 import 'package:alatoo/slider/slider.dart';
@@ -33,16 +36,15 @@ class _HomePageViewState extends State<HomePageView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: AppColors.grey2,
       appBar: AppBar(
-        title: const Center(
+        title: Center(
           child: Text(
-            "Отель",
-            style: TextStyle(
-                fontSize: 22, fontWeight: FontWeight.w500, color: Colors.black),
+            AppTexts.hotel,
+            style: AppTextStyles.makadi,
           ),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.white,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -50,7 +52,7 @@ class _HomePageViewState extends State<HomePageView> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
-              color: Colors.white,
+              color: AppColors.white,
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -66,7 +68,7 @@ class _HomePageViewState extends State<HomePageView> {
                     width: 150,
                     height: 30,
                     decoration: const BoxDecoration(
-                      color: Color.fromRGBO(255, 199, 0, 0.20),
+                      color: AppColors.star,
                     ),
                     child: const Column(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -75,11 +77,11 @@ class _HomePageViewState extends State<HomePageView> {
                           children: [
                             Icon(
                               Icons.star,
-                              color: Color(0xffffa800),
+                              color: AppColors.yellow,
                             ),
                             Text(
-                              "5 Превосходно",
-                              style: TextStyle(color: Color(0xffffa800)),
+                              AppTexts.great,
+                              style: AppTextStyles.greatStyle,
                             ),
                           ],
                         ),
@@ -87,33 +89,20 @@ class _HomePageViewState extends State<HomePageView> {
                     ),
                   ),
                   const Text(
-                    "Steigenberger Makadi",
-                    style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black),
+                    AppTexts.makadi,
+                    style: AppTextStyles.makadi,
                   ),
+                  SizedBox(width: 10),
                   const Text(
-                    "Madinat Makadi, Safaga Road, Makadi Bay, Египет",
-                    style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.blue),
+                    AppTexts.egipt,
+                    style: AppTextStyles.egipt,
                   ),
                   const Row(
                     children: [
+                      Text(AppTexts.tsena, style: AppTextStyles.tsenaText),
+                      SizedBox(width: 10),
                       Text(
-                        "от 134 673 ₽",
-                        style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        "за тур с перелётом",
+                        AppTexts.tur,
                         style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
@@ -125,7 +114,7 @@ class _HomePageViewState extends State<HomePageView> {
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -142,30 +131,22 @@ class _HomePageViewState extends State<HomePageView> {
                       const Padding(
                         padding:
                             EdgeInsets.only(left: 16, right: 16, bottom: 16),
-                        child: Text(
-                          'Об отеле',
-                          style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black),
-                        ),
+                        child:
+                            Text(AppTexts.obOtele, style: AppTextStyles.makadi),
                       ),
                       Row(
                         children: [
                           Container(
                             decoration:
-                                const BoxDecoration(color: Color(0xffFBFBFC)),
+                                const BoxDecoration(color: AppColors.grey2),
                             width: 140,
                             height: 30,
                             child: Center(
                               child: InkWell(
                                 onTap: () {},
                                 child: const Text(
-                                  "Все включено",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                      color: Color(0xff828796)),
+                                  AppTexts.vsevklycheno,
+                                  style: AppTextStyles.udobno,
                                 ),
                               ),
                             ),
@@ -174,11 +155,8 @@ class _HomePageViewState extends State<HomePageView> {
                             width: 30,
                           ),
                           const Text(
-                            "Платный Wi-Fi в фойе",
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: Color(0xff828796)),
+                            AppTexts.wifi,
+                            style: AppTextStyles.udobno,
                           ),
                         ],
                       ),
@@ -190,21 +168,15 @@ class _HomePageViewState extends State<HomePageView> {
                             Row(
                               children: [
                                 Text(
-                                  "30 км до аэропорта",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                      color: Color(0xff828796)),
+                                  AppTexts.aiport,
+                                  style: AppTextStyles.udobno,
                                 ),
                                 SizedBox(
                                   width: 20,
                                 ),
                                 Text(
-                                  "1 км до пляжа",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                      color: Color(0xff828796)),
+                                  AppTexts.beech,
+                                  style: AppTextStyles.udobno,
                                 ),
                               ],
                             ),
@@ -213,95 +185,116 @@ class _HomePageViewState extends State<HomePageView> {
                             ),
                             Row(
                               children: [
-                                Text(
-                                  "Отель VIP-класса с собственными гольф \n полями. Высокий  уровнь сервиса. Рекомендуем \nдля респектабельного отдыха. Отель \nпринимает гостей от 18 лет!",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.black),
-                                ),
+                                Text(AppTexts.vip,
+                                    style: AppTextStyles.information),
                                 SizedBox(height: 10),
                               ],
                             ),
                           ],
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Center(
                         child: Container(
-                          decoration:
-                              const BoxDecoration(color: Color(0xffFBFBFC)),
-                          width: 343,
-                          height: 184,
-                          child: Row(
-                            children: [
-                              SvgPicture.asset('assets/emoji_happy.svg'),
-                              const SizedBox(
-                                width: 15,
-                              ),
-                              const Row(
-                                children: [
-                                  Column(
-                                    children: [
-                                      Text(
-                                        "Удобства",
-                                        style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500,
-                                            color: Colors.black),
-                                      ),
-                                      Text(
-                                        "Самое необходимое",
-                                        style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w500,
-                                            color: Colors.grey),
-                                      ),
-                                      Divider(
-                                        indent: 20,
-                                        endIndent: 30,
-                                        color: Color(0x26828796),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(
-                                width: 110,
-                              ),
-                              IconButton(
-                                onPressed: () {},
-                                icon:
-                                    const Icon(Icons.arrow_forward_ios_rounded),
-                              ),
-                            ],
-                          ),
+                          decoration: const BoxDecoration(
+                              color: AppColors.grey1,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))),
+                          height: 55,
+                          child: ContainerButtom(
+                              image: SvgPicture.asset("assets/emoji_happy.svg"),
+                              text: AppTexts.udobstva),
                         ),
+                      ),
+                      const Divider(
+                        color: AppColors.seryi,
+                        indent: 45,
+                        endIndent: 45,
+                      ),
+                      ContainerButtom(
+                        image: SvgPicture.asset("assets/tick.svg"),
+                        text: AppTexts.vklycheno,
+                      ),
+                      const Divider(
+                        color: AppColors.seryi,
+                        indent: 45,
+                        endIndent: 45,
+                      ),
+                      ContainerButtom(
+                        image: SvgPicture.asset("assets/close.svg"),
+                        text: AppTexts.neVklycheno,
                       ),
                     ],
                   ),
                 ),
                 MyCustomButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: ((context) => const DetailPegeView())));
-                  },
-                  borderRadius: 20, // Здесь можно настроить радиус границ
-                  buttonText: 'К выбору номера',
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => const DetailPegeView())));
+                    },
+                    borderRadius: 20, // Здесь можно настроить радиус границ
+                    buttonText: AppTexts.vybor,
+                    style: AppTextStyles.kvyboru),
               ],
             ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class ContainerButtom extends StatelessWidget {
+  const ContainerButtom({
+    super.key,
+    required this.image,
+    required this.text,
+  });
+  final SvgPicture image;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.only(left: 40, top: 10),
+          child: image,
+        ),
+        const SizedBox(
+          width: 15,
+        ),
+        Row(
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  text,
+                  style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black),
+                ),
+                const Text(AppTexts.need, style: AppTextStyles.udobno),
+              ],
+            ),
+          ],
+        ),
+        const SizedBox(
+          width: 100,
+        ),
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.arrow_forward_ios_rounded),
+        ),
+      ],
     );
   }
 }
@@ -326,14 +319,14 @@ class MyCustomButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.blue,
+            backgroundColor: AppColors.blue,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(borderRadius),
             ),
             minimumSize: const Size.fromHeight(48)),
         child: Text(
           buttonText,
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: AppColors.white),
         ),
       ),
     );

@@ -1,3 +1,6 @@
+import 'package:alatoo/components/app_colors.dart';
+import 'package:alatoo/components/app_text_style.dart';
+import 'package:alatoo/components/app_texts.dart';
 import 'package:alatoo/pages/home_page.dart';
 import 'package:alatoo/pages/person_page.dart';
 import 'package:alatoo/slider/slider.dart';
@@ -21,7 +24,7 @@ class _DetailPegeViewState extends State<DetailPegeView> {
   }
 
   final decorator = DotsDecorator(
-    activeColor: Colors.black,
+    activeColor: AppColors.black,
     size: const Size.square(7.0),
     activeSize: const Size.square(7.0),
     activeShape: RoundedRectangleBorder(
@@ -32,16 +35,15 @@ class _DetailPegeViewState extends State<DetailPegeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: AppColors.grey2,
       appBar: AppBar(
         title: const Center(
           child: Text(
-            "Steigenberger Makadi",
-            style: TextStyle(
-                fontSize: 22, fontWeight: FontWeight.w500, color: Colors.black),
+            AppTexts.makadi,
+            style: AppTextStyles.makadi,
           ),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.white,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -51,7 +53,7 @@ class _DetailPegeViewState extends State<DetailPegeView> {
             Container(
               width: double.infinity,
               height: 539,
-              color: Colors.white,
+              color: AppColors.white,
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -64,11 +66,8 @@ class _DetailPegeViewState extends State<DetailPegeView> {
                   ]),
                   const SizedBox(height: 16),
                   const Text(
-                    "Стандартный с видом на бассейн или сад",
-                    style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black),
+                    AppTexts.garden,
+                    style: AppTextStyles.makadi,
                   ),
                   const SizedBox(height: 10),
                   Row(
@@ -82,11 +81,8 @@ class _DetailPegeViewState extends State<DetailPegeView> {
                           child: InkWell(
                             onTap: () {},
                             child: const Text(
-                              "Все включено",
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color(0xff828796)),
+                              AppTexts.vklycheno,
+                              style: AppTextStyles.udobno,
                             ),
                           ),
                         ),
@@ -103,11 +99,8 @@ class _DetailPegeViewState extends State<DetailPegeView> {
                           child: InkWell(
                             onTap: () {},
                             child: const Text(
-                              "Кондиционер",
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color(0xff828796)),
+                              AppTexts.kondic,
+                              style: AppTextStyles.udobno,
                             ),
                           ),
                         ),
@@ -128,11 +121,8 @@ class _DetailPegeViewState extends State<DetailPegeView> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "Подробнее о номере",
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color(0xff0D72FF)),
+                              AppTexts.onomere,
+                              style: AppTextStyles.onomere,
                             ),
                           ],
                         ),
@@ -142,22 +132,13 @@ class _DetailPegeViewState extends State<DetailPegeView> {
                   const SizedBox(height: 10),
                   const Row(
                     children: [
-                      Text(
-                        "от 134 673 ₽",
-                        style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black),
-                      ),
+                      Text(AppTexts.tsena1, style: AppTextStyles.tsenaText),
                       SizedBox(
                         width: 10,
                       ),
                       Text(
-                        "за тур с перелётом",
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xff828796)),
+                        AppTexts.tur2,
+                        style: AppTextStyles.udobno,
                       ),
                     ],
                   ),
@@ -169,21 +150,16 @@ class _DetailPegeViewState extends State<DetailPegeView> {
                               builder: ((context) => PersonPage())));
                     },
                     borderRadius: 20, // Здесь можно настроить радиус границ
-                    buttonText: 'Выбрать номер',
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white,
-                    ),
+                    buttonText: AppTexts.vybor1,
+                    style: AppTextStyles.kvyboru,
                   ),
                 ],
               ),
             ),
-            SizedBox(height: 10),
             Container(
               width: double.infinity,
               height: 539,
-              color: Colors.white,
+              color: AppColors.white,
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -196,11 +172,8 @@ class _DetailPegeViewState extends State<DetailPegeView> {
                   ]),
                   const SizedBox(height: 16),
                   const Text(
-                    "Стандартный с видом на бассейн или сад",
-                    style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black),
+                    AppTexts.garden,
+                    style: AppTextStyles.makadi,
                   ),
                   const SizedBox(height: 10),
                   Row(
@@ -214,11 +187,8 @@ class _DetailPegeViewState extends State<DetailPegeView> {
                           child: InkWell(
                             onTap: () {},
                             child: const Text(
-                              "Все включено",
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color(0xff828796)),
+                              AppTexts.vklycheno,
+                              style: AppTextStyles.udobno,
                             ),
                           ),
                         ),
@@ -235,11 +205,8 @@ class _DetailPegeViewState extends State<DetailPegeView> {
                           child: InkWell(
                             onTap: () {},
                             child: const Text(
-                              "Кондиционер",
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color(0xff828796)),
+                              AppTexts.kondic,
+                              style: AppTextStyles.udobno,
                             ),
                           ),
                         ),
@@ -260,11 +227,8 @@ class _DetailPegeViewState extends State<DetailPegeView> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "Подробнее о номере",
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color(0xff0D72FF)),
+                              AppTexts.onomere,
+                              style: AppTextStyles.onomere,
                             ),
                           ],
                         ),
@@ -274,22 +238,13 @@ class _DetailPegeViewState extends State<DetailPegeView> {
                   const SizedBox(height: 10),
                   const Row(
                     children: [
-                      Text(
-                        "от 134 673 ₽",
-                        style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black),
-                      ),
+                      Text(AppTexts.tsena1, style: AppTextStyles.tsenaText),
                       SizedBox(
                         width: 10,
                       ),
                       Text(
-                        "за тур с перелётом",
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xff828796)),
+                        AppTexts.tur2,
+                        style: AppTextStyles.udobno,
                       ),
                     ],
                   ),
@@ -298,15 +253,11 @@ class _DetailPegeViewState extends State<DetailPegeView> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: ((context) => const PersonPage())));
+                              builder: ((context) => PersonPage())));
                     },
                     borderRadius: 20, // Здесь можно настроить радиус границ
-                    buttonText: 'Выбрать номер',
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white,
-                    ),
+                    buttonText: AppTexts.vybor1,
+                    style: AppTextStyles.kvyboru,
                   ),
                 ],
               ),
