@@ -18,15 +18,15 @@ class _PaymentPageState extends State<PaymentPage> {
         Row(
           children: [
             Padding(
-              padding: EdgeInsets.only(left: 20, top: 50),
+              padding: const EdgeInsets.only(left: 20, top: 50),
               child: IconButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: Icon(Icons.arrow_back_ios),
+                icon: const Icon(Icons.arrow_back_ios),
               ),
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(left: 60, top: 50),
               child: Text(AppTexts.zakaz, style: AppTextStyles.makadi),
             ),
@@ -38,7 +38,7 @@ class _PaymentPageState extends State<PaymentPage> {
           height: 94,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(1000),
-              color: Color(0xFFF6F6F9)),
+              color: const Color(0xFFF6F6F9)),
           child: Image.asset(
             "assets/party.png",
             height: 188,

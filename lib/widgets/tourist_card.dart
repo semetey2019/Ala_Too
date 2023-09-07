@@ -13,6 +13,24 @@ class TouristCard extends StatefulWidget {
 class _TouristCardState extends State<TouristCard> {
   @override
   Widget build(BuildContext context) {
+    final surnameController = TextEditingController();
+    final nameController = TextEditingController();
+    final bothdayController = TextEditingController();
+    final fromController = TextEditingController();
+    final numberPassportController = TextEditingController();
+    final passporController = TextEditingController();
+
+    @override
+    void dispose() {
+      nameController.dispose();
+      surnameController.dispose();
+      bothdayController.dispose();
+      fromController.dispose();
+      numberPassportController.dispose();
+      passporController.dispose();
+      super.dispose();
+    }
+
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
@@ -50,17 +68,35 @@ class _TouristCardState extends State<TouristCard> {
                 )
               ],
             ),
-            const TextFormWidget(title: AppTexts.name),
+            TextFormWidget(
+              title: AppTexts.name,
+              controller: nameController,
+            ),
+            SizedBox(height: 8),
+            TextFormWidget(
+              title: AppTexts.name1,
+              controller: surnameController,
+            ),
             const SizedBox(height: 8),
-            const TextFormWidget(title: AppTexts.name1),
+            TextFormWidget(
+              title: AppTexts.bouthday,
+              controller: bothdayController,
+            ),
             const SizedBox(height: 8),
-            const TextFormWidget(title: AppTexts.bouthday),
+            TextFormWidget(
+              title: AppTexts.from,
+              controller: fromController,
+            ),
             const SizedBox(height: 8),
-            const TextFormWidget(title: AppTexts.from),
+            TextFormWidget(
+              title: AppTexts.number,
+              controller: nameController,
+            ),
             const SizedBox(height: 8),
-            const TextFormWidget(title: AppTexts.number),
-            const SizedBox(height: 8),
-            const TextFormWidget(title: AppTexts.passport),
+            TextFormWidget(
+              title: AppTexts.passport,
+              controller: passporController,
+            ),
           ],
         ),
       ),

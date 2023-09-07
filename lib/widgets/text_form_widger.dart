@@ -3,7 +3,10 @@ import 'package:alatoo/config/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class TextFormWidget extends StatelessWidget {
-  const TextFormWidget({super.key, required this.title});
+  const TextFormWidget(
+      {super.key,
+      required this.title,
+      required TextEditingController controller});
 
   final String title;
   @override

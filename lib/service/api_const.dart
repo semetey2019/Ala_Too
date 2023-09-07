@@ -1,39 +1,69 @@
-// import 'dart:convert';
+import 'package:alatoo/model/hotel_model.dart';
+import 'package:alatoo/model/apartament_model.dart';
+import 'package:alatoo/model/person_model.dart';
+import 'package:dio/dio.dart';
 
-// import 'package:alatoo/model/hotel_model.dart';
-// import 'package:http/http.dart' as http;
+class ApiService {
+  final Dio _client = Dio();
 
-// class HotelResponce {
-//   HotelResponce({required this.hotelValues, required this.statusCode});
-//   final HotelResponce hotelValues;
-//   final int statusCode;
-// }
+  get dio => null;
+  Future<PoomModel?> getUsers() async {
+    try {
+      var response = await _client
+          .get("http://run.mocky.io/v3/35e0d18e-2521-4f1b-a575-f0fe366f66e3/");
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return PoomModel.fromJson(response.data);
+      }
+    } catch (e) {
+      print(e);
+    }
+    return null;
+  }
 
-// class HotelService {
-//   final String baseUrl =
-//       "https://run.mocky.io/v3/35e0d18e-2521-4f1b-a575-f0fe366f66e3";
+  Future<ReservationModel?> getUsers2() async {
+    try {
+      var response = await _client
+          .get('http://run.mocky.io/v3/f9a38183-6f95-43aa-853a-9c83cbb05ecd');
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return ReservationModel.fromJson(response.data);
+      }
+    } catch (e) {
+      print(e);
+    }
+    return null;
+  }
 
-//   Future<List<HotelModel>> getAllImages() async {
-//     final response = await http
-//         .get(Uri.parse('$baseUrl.[HotelModel().aboutTheHotel]'), headers: {
-//       "Access-Control-Allow-Origin": "*",
-//       'Content-Type': 'application/json',
-//       'Accept': '*/*'
-//     });
+  Future<List<RoomModel>?> getApartament() async {
+    try {
+      var response = await _client
+          .get("http://run.mocky.io/v3/f9a38183-6f95-43aa-853a-9c83cbb05ecd");
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        List rooms = response.data['rooms'];
+        return rooms.map((e) => RoomModel.fromJson(e)).toList();
+      }
+    } catch (e) {
+      print(e);
+    }
+    return null;
+  }
 
-//     // if (response.statusCode == 200 || response.statusCode == 201) {
-//     //   //final List serviceCorporate = jsonDecode(utf8.decode(response.bodyBytes));
-//     //   final List data = (jsonDecode(response.body))['results'];
-//     //   print(response.body);
-//     //   return data.map((e) => HotelModel.fromJson(e)).toList();
-//     // } else {
-//     //   throw Exception("Server failre");
-//     // }
-//     if (response.statusCode == 200 || response.statusCode == 201) {
-//       final List hotels = jsonDecode(utf8.decode(response.bodyBytes));
-//       return hotels.map((e) => HotelModel.fromJson(e)).toList();
-//     } else {
-//       throw Exception("Server failre");
+//   Future<List<RoomModel>?> getRooms() async {
+//     try {
+//       final response = await dio.get("https://run.mocky.io/v3/f9a38183-6f95-43aa-853a-9c83cbb05ecd");
+
+//       if (response.statusCode == 200) {
+//         List rooms = response.data['rooms'];
+//         return rooms.map((e) => RoomModel.fromJson(e)).toList();
+//       } else {
+//         print(response);
+//         throw ServerException();
+//       }
+//     } catch (e) {
+//       print(e);
+//       throw ServerException();
 //     }
 //   }
 // }
+
+// class ServerException {}
+}

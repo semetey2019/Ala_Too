@@ -19,9 +19,13 @@ class MyCustomButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
           backgroundColor: Colors.blue,
-          shape: RoundedRectangleBorder(),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
           minimumSize: const Size.fromHeight(48)),
-      child: Text(buttonText),
+      child: Text(
+        buttonText,
+        style: TextStyle(color: Colors.white),
+      ),
     );
   }
 }

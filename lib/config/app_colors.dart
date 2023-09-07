@@ -13,4 +13,5 @@ class AppColors {
   static const black = Color(0xFF000000);
   static const grey2 = Color.fromARGB(255, 245, 245, 245);
   static const star = Color.fromRGBO(255, 199, 0, 0.20);
+  static const grey3 = Color(0xFFFBFBFC);
 }
