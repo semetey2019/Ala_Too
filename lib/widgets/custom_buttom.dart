@@ -17,7 +17,7 @@ class MyCustomButton extends StatelessWidget {
       padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
       child: Container(
         width: 434,
-        height: 46,
+        height: 50,
         decoration: const BoxDecoration(color: Colors.white),
         child: ElevatedButton(
           onPressed: onPressed,

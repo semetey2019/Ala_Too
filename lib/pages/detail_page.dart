@@ -35,6 +35,7 @@ class _DetailPageState extends State<DetailPage> {
     return Scaffold(
       backgroundColor: AppColors.grey2,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);

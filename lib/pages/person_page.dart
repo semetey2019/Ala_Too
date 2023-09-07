@@ -203,7 +203,7 @@ class _PersonPageState extends State<PersonPage> {
                               ),
                               TableRow(
                                 children: <Widget>[
-                                  Padding(
+                                  const Padding(
                                     padding: EdgeInsets.symmetric(vertical: 8),
                                     child: Text(AppTexts.daty,
                                         style: AppTextStyles.turStyle),
@@ -265,7 +265,7 @@ class _PersonPageState extends State<PersonPage> {
                               ),
                               TableRow(
                                 children: <Widget>[
-                                  Padding(
+                                  const Padding(
                                     padding: EdgeInsets.symmetric(vertical: 8),
                                     child: Text(AppTexts.food,
                                         style: AppTextStyles.turStyle),
@@ -294,7 +294,7 @@ class _PersonPageState extends State<PersonPage> {
                         ),
                       ),
                       child: Padding(
-                        padding: EdgeInsets.only(left: 16, right: 16),
+                        padding: const EdgeInsets.only(left: 16, right: 16),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -388,7 +388,7 @@ class _PersonPageState extends State<PersonPage> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(AppTexts.addtourist,
+                            const Text(AppTexts.addtourist,
                                 style: AppTextStyles.makadi),
                             Container(
                               width: 32,
@@ -411,8 +411,8 @@ class _PersonPageState extends State<PersonPage> {
                       height: 10,
                     ),
                     Container(
-                      width: 375,
-                      height: 156,
+                      // width: 375,
+                      // height: 156,
                       padding: const EdgeInsets.all(16),
                       decoration: ShapeDecoration(
                         color: Colors.white,
