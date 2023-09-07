@@ -1,5 +1,6 @@
 import 'package:alatoo/config/app_text_style.dart';
 import 'package:alatoo/config/app_texts.dart';
+import 'package:alatoo/widgets/custom_buttom.dart';
 import 'package:flutter/material.dart';
 
 class PaymentPage extends StatefulWidget {
@@ -53,7 +54,16 @@ class _PaymentPageState extends State<PaymentPage> {
             AppTexts.information1,
             style: AppTextStyles.neobxodimoStyle,
           ),
-        )
+        ),
+        const SizedBox(
+          height: 180,
+        ),
+        MyCustomButton(
+            onPressed: () {
+              Navigator.of(context).popUntil((route) => route.isFirst);
+            },
+            buttonText: "Супер!",
+            style: AppTextStyles.kvyboru)
       ]),
     );
   }

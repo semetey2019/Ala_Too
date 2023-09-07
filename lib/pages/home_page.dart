@@ -20,8 +20,8 @@ class HomePageView extends StatefulWidget {
 }
 
 class _HomePageViewState extends State<HomePageView> {
-  PoomModel? _hotelModel;
-  final _totalDots = 5;
+  HotelModel? _hotelModel;
+
   int _currentPosition = 0;
 
   void getData() async {
@@ -96,7 +96,7 @@ class _HomePageViewState extends State<HomePageView> {
                             children: [
                               Row(
                                 children: [
-                                  Icon(
+                                  const Icon(
                                     Icons.star,
                                     color: AppColors.yellow,
                                   ),
@@ -122,10 +122,10 @@ class _HomePageViewState extends State<HomePageView> {
                           children: [
                             Text(_hotelModel!.minimalPrice.toString(),
                                 style: AppTextStyles.tsenaText),
-                            SizedBox(width: 10),
+                            const SizedBox(width: 10),
                             Text(
                               _hotelModel!.priceForIt.toString(),
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
                                   color: Color(0xff828796)),
@@ -145,115 +145,118 @@ class _HomePageViewState extends State<HomePageView> {
                       Container(
                         width: double.infinity,
                         color: Colors.white,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Padding(
-                              padding: EdgeInsets.only(
-                                  left: 16, right: 16, bottom: 16),
-                              child: Text(AppTexts.obOtele,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 16),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(AppTexts.obOtele,
                                   style: AppTextStyles.makadi),
-                            ),
-                            Wrap(
-                              spacing: 8,
-                              runSpacing: 8,
-                              children: [
-                                ..._hotelModel!.aboutTheHotel!.peculiarities!
-                                    .map(
-                                  (e) => Container(
-                                    padding: const EdgeInsets.all(8),
-                                    decoration: BoxDecoration(
-                                        color: AppColors.grey1,
-                                        borderRadius: BorderRadius.circular(4)),
-                                    child: Text(e.toString(),
-                                        style: AppTextStyles.turStyle),
-                                  ),
-                                )
-                              ],
-                            ),
-                            const SizedBox(height: 15),
-                            Padding(
-                              padding: EdgeInsets.only(left: 16),
-                              child: Column(
+                              Wrap(
+                                spacing: 8,
+                                runSpacing: 8,
                                 children: [
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Column(
-                                    children: [
-                                      Text(
-                                          _hotelModel!
-                                              .aboutTheHotel!.description!
-                                              .toString(),
-                                          style: AppTextStyles.information),
-                                    ],
-                                  ),
-                                  SizedBox(height: 10),
+                                  ..._hotelModel!.aboutTheHotel!.peculiarities!
+                                      .map(
+                                    (e) => Container(
+                                      padding: const EdgeInsets.all(8),
+                                      decoration: BoxDecoration(
+                                          color: AppColors.grey1,
+                                          borderRadius:
+                                              BorderRadius.circular(4)),
+                                      child: Text(e.toString(),
+                                          style: AppTextStyles.turStyle),
+                                    ),
+                                  )
                                 ],
                               ),
-                            ),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            Center(
-                              child: Container(
-                                decoration: const BoxDecoration(
-                                    color: AppColors.grey3,
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(15))),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 25, right: 16),
-                                  child: ContainerButtom(
-                                    image: SvgPicture.asset(
-                                        "assets/emoji_happy.svg"),
-                                    text: AppTexts.udobstva,
-                                    color: AppColors.grey3,
-                                    width: Size(380, 55),
+                              const SizedBox(height: 15),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 16),
+                                child: Column(
+                                  children: [
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    Column(
+                                      children: [
+                                        Text(
+                                            _hotelModel!
+                                                .aboutTheHotel!.description!
+                                                .toString(),
+                                            style: AppTextStyles.information),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 10),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Center(
+                                child: Container(
+                                  decoration: const BoxDecoration(
+                                      color: AppColors.grey3,
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(15))),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 25, right: 16),
+                                    child: ContainerButtom(
+                                      image: SvgPicture.asset(
+                                          "assets/emoji_happy.svg"),
+                                      text: AppTexts.udobstva,
+                                      color: AppColors.grey3,
+                                      width: const Size(430, 55),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                            const Divider(
-                              color: AppColors.seryi,
-                              indent: 45,
-                              endIndent: 45,
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 25, right: 16),
-                              child: ContainerButtom(
-                                image: SvgPicture.asset("assets/tick.svg"),
-                                text: AppTexts.vklycheno,
-                                color: AppColors.grey3,
-                                width: Size(380, 55),
+                              const Divider(
+                                color: AppColors.seryi,
+                                indent: 45,
+                                endIndent: 45,
                               ),
-                            ),
-                            const Divider(
-                              color: AppColors.seryi,
-                              indent: 45,
-                              endIndent: 45,
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 25, right: 16),
-                              child: ContainerButtom(
-                                image: SvgPicture.asset("assets/close.svg"),
-                                text: AppTexts.neVklycheno,
-                                color: AppColors.grey3,
-                                width: Size(380, 55),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 25, right: 16),
+                                child: ContainerButtom(
+                                  image: SvgPicture.asset("assets/tick.svg"),
+                                  text: AppTexts.vklycheno,
+                                  color: AppColors.grey3,
+                                  width: const Size(380, 55),
+                                ),
                               ),
-                            ),
-                          ],
+                              const Divider(
+                                color: AppColors.seryi,
+                                indent: 45,
+                                endIndent: 45,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 25, right: 16, bottom: 25),
+                                child: ContainerButtom(
+                                  image: SvgPicture.asset("assets/close.svg"),
+                                  text: AppTexts.neVklycheno,
+                                  color: AppColors.grey3,
+                                  width: const Size(380, 55),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
+                      ),
+                      SizedBox(
+                        height: 15,
                       ),
                       MyCustomButton(
                           onPressed: () {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: ((context) => NumberPage(
+                                    builder: ((context) => DetailPage(
                                           title: _hotelModel!.name.toString(),
                                         ))));
                           },

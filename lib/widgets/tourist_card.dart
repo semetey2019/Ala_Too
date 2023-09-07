@@ -1,104 +1,148 @@
+import 'package:alatoo/config/app_colors.dart';
 import 'package:alatoo/config/app_text_style.dart';
-import 'package:alatoo/config/app_texts.dart';
+import 'package:alatoo/model/tourists_model.dart';
 import 'package:alatoo/widgets/text_form_widger.dart';
 import 'package:flutter/material.dart';
 
-class TouristCard extends StatefulWidget {
-  const TouristCard({super.key, required this.text});
-  final String text;
+class TuoristCardWidget extends StatefulWidget {
+  final TouristsEntity touristEntity;
+  final String title;
+
+  const TuoristCardWidget({
+    super.key,
+    required this.touristEntity,
+    required this.title,
+  });
+
   @override
-  State<TouristCard> createState() => _TouristCardState();
+  State<TuoristCardWidget> createState() => _TuoristCardWidgetState();
 }
 
-class _TouristCardState extends State<TouristCard> {
+class _TuoristCardWidgetState extends State<TuoristCardWidget> {
+  bool isExpanded = true;
+
   @override
   Widget build(BuildContext context) {
-    final surnameController = TextEditingController();
-    final nameController = TextEditingController();
-    final bothdayController = TextEditingController();
-    final fromController = TextEditingController();
-    final numberPassportController = TextEditingController();
-    final passporController = TextEditingController();
-
-    @override
-    void dispose() {
-      nameController.dispose();
-      surnameController.dispose();
-      bothdayController.dispose();
-      fromController.dispose();
-      numberPassportController.dispose();
-      passporController.dispose();
-      super.dispose();
-    }
-
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        color: Colors.white,
-      ),
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 800),
+      curve: Curves.bounceIn,
       width: double.infinity,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 16, right: 16),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+      padding: const EdgeInsets.fromLTRB(16, 13, 16, 13),
+      decoration: const BoxDecoration(
+        color: AppColors.white,
+        borderRadius: BorderRadius.all(Radius.circular(12)),
+      ),
+      child: Column(
+        children: [
+          GestureDetector(
+            onTap: () => setState(() => isExpanded = !isExpanded),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  widget.text,
-                  style: AppTextStyles.makadi,
-                ),
-                const SizedBox(
-                  height: 100,
-                ),
-                InkWell(
-                  onTap: () {
-                    setState(() {});
-                  },
-                  child: Container(
-                    width: 32,
-                    height: 32,
-                    decoration: ShapeDecoration(
-                      color: const Color(0x190D72FF),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(6)),
-                    ),
-                    child: const Icon(Icons.keyboard_arrow_up),
+                Text(widget.title, style: AppTextStyles.makadi),
+                Container(
+                  width: 32,
+                  height: 32,
+                  decoration: BoxDecoration(
+                    color: const Color(0x190D72FF),
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  child: Icon(
+                    isExpanded
+                        ? Icons.keyboard_arrow_up
+                        : Icons.keyboard_arrow_down,
+                    color: AppColors.blue,
                   ),
                 )
               ],
             ),
-            TextFormWidget(
-              title: AppTexts.name,
-              controller: nameController,
+          ),
+          SizedBox(
+            height: isExpanded ? null : 0,
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const SizedBox(height: 20),
+                  TextFormFieldWidget(
+                    controller: widget.touristEntity.firstName,
+                    keyboardType: TextInputType.name,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Введите имя";
+                      }
+                      return null;
+                    },
+                    labelText: 'Имя',
+                  ),
+                  const SizedBox(height: 8),
+                  TextFormFieldWidget(
+                    labelText: 'Фамилия',
+                    controller: widget.touristEntity.lastName,
+                    keyboardType: TextInputType.name,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Введите фамилия";
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(height: 8),
+                  TextFormFieldWidget(
+                    labelText: "Дата рождения",
+                    controller: widget.touristEntity.birthDay,
+                    keyboardType: TextInputType.datetime,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Введите день рождения";
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(height: 8),
+                  TextFormFieldWidget(
+                    labelText: "Гражданство",
+                    controller: widget.touristEntity.citizenship,
+                    keyboardType: TextInputType.text,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Введите гражданство";
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(height: 8),
+                  TextFormFieldWidget(
+                    labelText: "Номер загранпаспорта",
+                    controller: widget.touristEntity.passportNumber,
+                    keyboardType: TextInputType.number,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Введите номер загранпаспорта";
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(height: 8),
+                  TextFormFieldWidget(
+                    labelText: "Срок действия загранпаспорта",
+                    controller: widget.touristEntity.passportValidityPeriod,
+                    keyboardType: TextInputType.datetime,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Введите срок действия загранпаспорта";
+                      }
+                      return null;
+                    },
+                  ),
+                ],
+              ),
             ),
-            SizedBox(height: 8),
-            TextFormWidget(
-              title: AppTexts.name1,
-              controller: surnameController,
-            ),
-            const SizedBox(height: 8),
-            TextFormWidget(
-              title: AppTexts.bouthday,
-              controller: bothdayController,
-            ),
-            const SizedBox(height: 8),
-            TextFormWidget(
-              title: AppTexts.from,
-              controller: fromController,
-            ),
-            const SizedBox(height: 8),
-            TextFormWidget(
-              title: AppTexts.number,
-              controller: nameController,
-            ),
-            const SizedBox(height: 8),
-            TextFormWidget(
-              title: AppTexts.passport,
-              controller: passporController,
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

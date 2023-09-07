@@ -1,4 +1,4 @@
-class PoomModel {
+class HotelModel {
   int? id;
   String? name;
   String? adress;
@@ -9,7 +9,7 @@ class PoomModel {
   List<String>? imageUrls;
   AboutTheHotel? aboutTheHotel;
 
-  PoomModel(
+  HotelModel(
       {this.id,
       this.name,
       this.adress,
@@ -20,7 +20,7 @@ class PoomModel {
       this.imageUrls,
       this.aboutTheHotel});
 
-  PoomModel.fromJson(Map<String, dynamic> json) {
+  HotelModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     adress = json['adress'];

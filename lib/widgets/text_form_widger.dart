@@ -1,14 +1,25 @@
 import 'package:alatoo/config/app_colors.dart';
-
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-class TextFormWidget extends StatelessWidget {
-  const TextFormWidget(
-      {super.key,
-      required this.title,
-      required TextEditingController controller});
+class TextFormFieldWidget extends StatelessWidget {
+  final TextEditingController? controller;
+  final TextInputType? keyboardType;
+  final String? Function(String?)? validator;
+  final List<TextInputFormatter>? inputFormatters;
+  final formkey = GlobalKey<FormState>();
 
-  final String title;
+  TextFormFieldWidget({
+    super.key,
+    this.controller,
+    this.keyboardType,
+    this.validator,
+    this.inputFormatters,
+    required this.labelText,
+  });
+
+  final String labelText;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -16,6 +27,10 @@ class TextFormWidget extends StatelessWidget {
             height: 1.10,
             fontSize: 17,
           ),
+      keyboardType: keyboardType,
+      validator: validator,
+      controller: controller,
+      inputFormatters: inputFormatters,
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.symmetric(
           vertical: 8,
@@ -26,9 +41,9 @@ class TextFormWidget extends StatelessWidget {
               fontSize: 17,
               height: 0.9,
             ),
-        labelText: title,
+        labelText: labelText,
         filled: true,
-        fillColor: AppColors.grey2,
+        fillColor: AppColors.grey1,
         border: UnderlineInputBorder(
           borderRadius: BorderRadius.circular(10),
           borderSide: BorderSide.none,
