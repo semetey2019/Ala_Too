@@ -248,17 +248,19 @@ class _HomePageViewState extends State<HomePageView> {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       MyCustomButton(
                           onPressed: () {
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: ((context) => DetailPage(
-                                          title: _hotelModel!.name.toString(),
-                                        ))));
+                              context,
+                              MaterialPageRoute(
+                                builder: ((context) => DetailPage(
+                                      title: _hotelModel!.name.toString(),
+                                    )),
+                              ),
+                            );
                           },
                           buttonText: AppTexts.vybor,
                           style: AppTextStyles.kvyboru),
