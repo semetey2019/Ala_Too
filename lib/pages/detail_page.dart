@@ -60,7 +60,8 @@ class _DetailPageState extends State<DetailPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(left: 16, top: 10, right: 16),
+                      padding:
+                          const EdgeInsets.only(left: 16, top: 10, right: 16),
                       child: SliderWidget(urls: room.imageUrls!),
                     ),
                     const SizedBox(
