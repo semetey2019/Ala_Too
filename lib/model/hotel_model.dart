@@ -30,7 +30,7 @@ class HotelModel {
     ratingName = json['rating_name'];
     imageUrls = json['image_urls'].cast<String>();
     aboutTheHotel = json['about_the_hotel'] != null
-        ? new AboutTheHotel.fromJson(json['about_the_hotel'])
+        ? AboutTheHotel.fromJson(json['about_the_hotel'])
         : null;
   }
 

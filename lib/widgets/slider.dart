@@ -46,7 +46,9 @@ class _SliderWidgetState extends State<SliderWidget> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 image: DecorationImage(
-                  image: NetworkImage(images[index]),
+                  image: NetworkImage(
+                    images[index],
+                  ),
                   fit: BoxFit.cover,
                 ),
               ),

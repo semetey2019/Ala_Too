@@ -22,6 +22,7 @@ class HomePageView extends StatefulWidget {
 class _HomePageViewState extends State<HomePageView> {
   HotelModel? _hotelModel;
 
+  // ignore: prefer_final_fields
   int _currentPosition = 0;
 
   void getData() async {

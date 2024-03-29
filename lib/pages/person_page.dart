@@ -95,411 +95,427 @@ class _PersonPageState extends State<PersonPage> {
                 padding: const EdgeInsets.only(left: 8, right: 8),
                 child: Form(
                   key: _formKey,
-                  child: Column(children: [
-                    Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: AppColors.white,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 16),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const SizedBox(
-                              height: 25,
-                            ),
-                            Container(
-                              width: 149,
-                              height: 29,
-                              decoration: ShapeDecoration(
-                                color: AppColors.brown,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                              ),
-                              child: Row(
-                                children: [
-                                  const Icon(Icons.star,
-                                      color: AppColors.yellow),
-                                  const SizedBox(width: 2),
-                                  Text(
-                                    registermodel!.ratingName!,
-                                    style: AppTextStyles.greatStyle,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              registermodel!.hotelAdress!,
-                              style: AppTextStyles.makadi,
-                            ),
-                            const SizedBox(
-                              height: 15,
-                            ),
-                            Text(registermodel!.hotelAdress!,
-                                style: AppTextStyles.egipt),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Center(
-                      child: Container(
+                  child: Column(
+                    children: [
+                      Container(
+                        width: double.infinity,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
                           color: AppColors.white,
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.only(
-                              left: 16, top: 10, right: 5),
-                          child: Table(
-                            columnWidths: const <int, TableColumnWidth>{
-                              0: FixedColumnWidth(140),
-                              1: FlexColumnWidth(),
-                            },
-                            defaultVerticalAlignment:
-                                TableCellVerticalAlignment.top,
-                            children: <TableRow>[
-                              TableRow(
-                                children: <Widget>[
-                                  const Padding(
-                                    padding: EdgeInsets.symmetric(vertical: 8),
-                                    child: Text(AppTexts.vylet,
-                                        style: AppTextStyles.turStyle),
-                                  ),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.symmetric(vertical: 8),
-                                    child: Text(registermodel!.departure!,
-                                        style: AppTextStyles.information),
-                                  ),
-                                ],
-                              ),
-                              TableRow(
-                                children: <Widget>[
-                                  const Padding(
-                                    padding: EdgeInsets.symmetric(vertical: 8),
-                                    child: Text(AppTexts.city,
-                                        style: AppTextStyles.turStyle),
-                                  ),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.symmetric(vertical: 8),
-                                    child: Text(registermodel!.arrivalCountry!,
-                                        style: AppTextStyles.information),
-                                  ),
-                                ],
-                              ),
-                              TableRow(
-                                children: <Widget>[
-                                  const Padding(
-                                    padding: EdgeInsets.symmetric(vertical: 8),
-                                    child: Text(AppTexts.daty,
-                                        style: AppTextStyles.turStyle),
-                                  ),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.symmetric(vertical: 8),
-                                    child: Text(
-                                        '${registermodel!.tourDateStart} – ${registermodel!.tourDateStop}',
-                                        style: AppTextStyles.information),
-                                  ),
-                                ],
-                              ),
-                              TableRow(
-                                children: <Widget>[
-                                  const Padding(
-                                    padding: EdgeInsets.symmetric(vertical: 8),
-                                    child: Text(AppTexts.night,
-                                        style: AppTextStyles.turStyle),
-                                  ),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.symmetric(vertical: 8),
-                                    child: Text(
-                                        '${registermodel!.numberOfNights}',
-                                        style: AppTextStyles.information),
-                                  ),
-                                ],
-                              ),
-                              TableRow(
-                                children: <Widget>[
-                                  const Padding(
-                                    padding: EdgeInsets.symmetric(vertical: 8),
-                                    child: Text(AppTexts.hotel,
-                                        style: AppTextStyles.turStyle),
-                                  ),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.symmetric(vertical: 8),
-                                    child: Text(registermodel!.hotelName!,
-                                        style: AppTextStyles.information),
-                                  ),
-                                ],
-                              ),
-                              TableRow(
-                                children: <Widget>[
-                                  const Padding(
-                                    padding: EdgeInsets.symmetric(vertical: 8),
-                                    child: Text(AppTexts.number,
-                                        style: AppTextStyles.turStyle),
-                                  ),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.symmetric(vertical: 8),
-                                    child: Text(registermodel!.room!,
-                                        style: AppTextStyles.information),
-                                  ),
-                                ],
-                              ),
-                              TableRow(
-                                children: <Widget>[
-                                  const Padding(
-                                    padding: EdgeInsets.symmetric(vertical: 8),
-                                    child: Text(AppTexts.food,
-                                        style: AppTextStyles.turStyle),
-                                  ),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.symmetric(vertical: 8),
-                                    child: Text(registermodel!.nutrition!,
-                                        style: AppTextStyles.information),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      decoration: ShapeDecoration(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 16, right: 16),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            const Text(AppTexts.information,
-                                style: AppTextStyles.makadi),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            TextFormFieldWidget(
-                              keyboardType: TextInputType.number,
-                              controller: phoneController,
-                              inputFormatters: [phoneMaskFormatter],
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Заполните поле';
-                                } else {
-                                  return null;
-                                }
-                              },
-                              labelText: 'Number',
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            TextFormFieldWidget(
-                              keyboardType: TextInputType.emailAddress,
-                              controller: emailController,
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Заполните поле';
-                                } else {
-                                  return null;
-                                }
-                              },
-                              labelText: 'Email',
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        for (int i = 0; i < tourists.length; i++)
-                          Column(
+                          padding: const EdgeInsets.only(left: 16),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              TuoristCardWidget(
-                                touristEntity: tourists[i],
-                                title: parseNumberToString(i + 1),
+                              const SizedBox(
+                                height: 25,
                               ),
-                              if (i + 1 < tourists.length)
-                                const SizedBox(height: 8),
+                              Container(
+                                width: 149,
+                                height: 29,
+                                decoration: ShapeDecoration(
+                                  color: AppColors.brown,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                ),
+                                child: Row(
+                                  children: [
+                                    const Icon(Icons.star,
+                                        color: AppColors.yellow),
+                                    const SizedBox(width: 2),
+                                    Text(
+                                      registermodel!.ratingName!,
+                                      style: AppTextStyles.greatStyle,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                registermodel!.hotelAdress!,
+                                style: AppTextStyles.makadi,
+                              ),
+                              const SizedBox(
+                                height: 15,
+                              ),
+                              Text(registermodel!.hotelAdress!,
+                                  style: AppTextStyles.egipt),
+                              const SizedBox(
+                                height: 20,
+                              ),
                             ],
                           ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          tourists.add(
-                            TouristsEntity(
-                              firstName: TextEditingController(),
-                              lastName: TextEditingController(),
-                              birthDay: TextEditingController(),
-                              citizenship: TextEditingController(),
-                              passportNumber: TextEditingController(),
-                              passportValidityPeriod: TextEditingController(),
-                            ),
-                          );
-                        });
-                      },
-                      child: Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.fromLTRB(16, 13, 16, 13),
-                        decoration: const BoxDecoration(
-                          color: AppColors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(12)),
-                        ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text(AppTexts.addtourist,
-                                style: AppTextStyles.makadi),
-                            Container(
-                              width: 32,
-                              height: 32,
-                              decoration: BoxDecoration(
-                                color: AppColors.blue,
-                                borderRadius: BorderRadius.circular(6),
-                              ),
-                              child: const Icon(
-                                Icons.add,
-                                color: AppColors.white,
-                                size: 24,
-                              ),
-                            )
-                          ],
                         ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      // width: 375,
-                      // height: 156,
-                      padding: const EdgeInsets.all(16),
-                      decoration: ShapeDecoration(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
+                      const SizedBox(
+                        height: 10,
                       ),
-                      child: Container(
-                        width: double.infinity,
-                        decoration: const BoxDecoration(
-                          color: AppColors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(12)),
-                        ),
-                        child: Column(
-                          children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                const Text(AppTexts.tur1,
-                                    style: AppTextStyles.turStyle),
-                                Text("${registermodel!.tourPrice} ₽",
-                                    style: AppTextStyles.information),
-                              ],
-                            ),
-                            const SizedBox(height: 12),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                const Text(AppTexts.sbor,
-                                    style: AppTextStyles.turStyle),
-                                Text("${registermodel!.fuelCharge} ₽",
-                                    style: AppTextStyles.information),
-                              ],
-                            ),
-                            const SizedBox(height: 12),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                const Text(AppTexts.serviceSbor,
-                                    style: AppTextStyles.turStyle),
-                                Text(
-                                  "${registermodel!.serviceCharge} ₽",
-                                  style: AppTextStyles.information,
+                      Center(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            color: AppColors.white,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                left: 16, top: 10, right: 5),
+                            child: Table(
+                              columnWidths: const <int, TableColumnWidth>{
+                                0: FixedColumnWidth(140),
+                                1: FlexColumnWidth(),
+                              },
+                              defaultVerticalAlignment:
+                                  TableCellVerticalAlignment.top,
+                              children: <TableRow>[
+                                TableRow(
+                                  children: <Widget>[
+                                    const Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 8),
+                                      child: Text(AppTexts.vylet,
+                                          style: AppTextStyles.turStyle),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 8),
+                                      child: Text(registermodel!.departure!,
+                                          style: AppTextStyles.information),
+                                    ),
+                                  ],
+                                ),
+                                TableRow(
+                                  children: <Widget>[
+                                    const Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 8),
+                                      child: Text(AppTexts.city,
+                                          style: AppTextStyles.turStyle),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 8),
+                                      child: Text(
+                                          registermodel!.arrivalCountry!,
+                                          style: AppTextStyles.information),
+                                    ),
+                                  ],
+                                ),
+                                TableRow(
+                                  children: <Widget>[
+                                    const Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 8),
+                                      child: Text(AppTexts.daty,
+                                          style: AppTextStyles.turStyle),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 8),
+                                      child: Text(
+                                          '${registermodel!.tourDateStart} – ${registermodel!.tourDateStop}',
+                                          style: AppTextStyles.information),
+                                    ),
+                                  ],
+                                ),
+                                TableRow(
+                                  children: <Widget>[
+                                    const Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 8),
+                                      child: Text(AppTexts.night,
+                                          style: AppTextStyles.turStyle),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 8),
+                                      child: Text(
+                                          '${registermodel!.numberOfNights}',
+                                          style: AppTextStyles.information),
+                                    ),
+                                  ],
+                                ),
+                                TableRow(
+                                  children: <Widget>[
+                                    const Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 8),
+                                      child: Text(AppTexts.hotel,
+                                          style: AppTextStyles.turStyle),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 8),
+                                      child: Text(registermodel!.hotelName!,
+                                          style: AppTextStyles.information),
+                                    ),
+                                  ],
+                                ),
+                                TableRow(
+                                  children: <Widget>[
+                                    const Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 8),
+                                      child: Text(AppTexts.number,
+                                          style: AppTextStyles.turStyle),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 8),
+                                      child: Text(registermodel!.room!,
+                                          style: AppTextStyles.information),
+                                    ),
+                                  ],
+                                ),
+                                TableRow(
+                                  children: <Widget>[
+                                    const Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 8),
+                                      child: Text(AppTexts.food,
+                                          style: AppTextStyles.turStyle),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 8),
+                                      child: Text(registermodel!.nutrition!,
+                                          style: AppTextStyles.information),
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 12),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                const Text(AppTexts.oplata,
-                                    style: AppTextStyles.turStyle),
-                                Text(
-                                    "${(registermodel!.tourPrice! + registermodel!.fuelCharge! + registermodel!.serviceCharge!)} ₽",
-                                    style: AppTextStyles.onomere),
-                              ],
-                            ),
-                          ],
+                          ),
                         ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    MyCustomButton(
-                      style: AppTextStyles.kvyboru,
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const PaymentPage(),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        decoration: ShapeDecoration(
+                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 16, right: 16),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              const Text(AppTexts.information,
+                                  style: AppTextStyles.makadi),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              TextFormFieldWidget(
+                                keyboardType: TextInputType.number,
+                                controller: phoneController,
+                                inputFormatters: [phoneMaskFormatter],
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Заполните поле';
+                                  } else {
+                                    return null;
+                                  }
+                                },
+                                labelText: 'Number',
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              TextFormFieldWidget(
+                                keyboardType: TextInputType.emailAddress,
+                                controller: emailController,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Заполните поле';
+                                  } else {
+                                    return null;
+                                  }
+                                },
+                                labelText: 'Email',
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          for (int i = 0; i < tourists.length; i++)
+                            Column(
+                              children: [
+                                TuoristCardWidget(
+                                  touristEntity: tourists[i],
+                                  title: parseNumberToString(i + 1),
+                                ),
+                                if (i + 1 < tourists.length)
+                                  const SizedBox(height: 8),
+                              ],
                             ),
-                          );
-                        }
-                      },
-                      buttonText:
-                          'К оплате ${registermodel!.tourPrice! + registermodel!.fuelCharge! + registermodel!.serviceCharge!} ',
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                  ]),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            tourists.add(
+                              TouristsEntity(
+                                firstName: TextEditingController(),
+                                lastName: TextEditingController(),
+                                birthDay: TextEditingController(),
+                                citizenship: TextEditingController(),
+                                passportNumber: TextEditingController(),
+                                passportValidityPeriod: TextEditingController(),
+                              ),
+                            );
+                          });
+                        },
+                        child: Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.fromLTRB(16, 13, 16, 13),
+                          decoration: const BoxDecoration(
+                            color: AppColors.white,
+                            borderRadius: BorderRadius.all(Radius.circular(12)),
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text(AppTexts.addtourist,
+                                  style: AppTextStyles.makadi),
+                              Container(
+                                width: 32,
+                                height: 32,
+                                decoration: BoxDecoration(
+                                  color: AppColors.blue,
+                                  borderRadius: BorderRadius.circular(6),
+                                ),
+                                child: const Icon(
+                                  Icons.add,
+                                  color: AppColors.white,
+                                  size: 24,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        // width: 375,
+                        // height: 156,
+                        padding: const EdgeInsets.all(16),
+                        decoration: ShapeDecoration(
+                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        child: Container(
+                          width: double.infinity,
+                          decoration: const BoxDecoration(
+                            color: AppColors.white,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(12),
+                            ),
+                          ),
+                          child: Column(
+                            children: [
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  const Text(AppTexts.tur1,
+                                      style: AppTextStyles.turStyle),
+                                  Text("${registermodel!.tourPrice} ₽",
+                                      style: AppTextStyles.information),
+                                ],
+                              ),
+                              const SizedBox(height: 12),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  const Text(AppTexts.sbor,
+                                      style: AppTextStyles.turStyle),
+                                  Text("${registermodel!.fuelCharge} ₽",
+                                      style: AppTextStyles.information),
+                                ],
+                              ),
+                              const SizedBox(height: 12),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  const Text(AppTexts.serviceSbor,
+                                      style: AppTextStyles.turStyle),
+                                  Text(
+                                    "${registermodel!.serviceCharge} ₽",
+                                    style: AppTextStyles.information,
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 12),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  const Text(AppTexts.oplata,
+                                      style: AppTextStyles.turStyle),
+                                  Text(
+                                      "${(registermodel!.tourPrice! + registermodel!.fuelCharge! + registermodel!.serviceCharge!)} ₽",
+                                      style: AppTextStyles.onomere),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      MyCustomButton(
+                        style: AppTextStyles.kvyboru,
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const PaymentPage(),
+                              ),
+                            );
+                          }
+                        },
+                        buttonText:
+                            'К оплате ${registermodel!.tourPrice! + registermodel!.fuelCharge! + registermodel!.serviceCharge!} ',
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
